@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *
+        {
+            font-family: "Arvo", serif;
+        }
+       body{
+        min-height: 100vh;
+       }
+       .DisplayBox
+       {
+        display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            padding: 10px;
+            gap: 10px;
+       }
+       .image
+       {
+        width: 100%;
+            height: 300px;
+            object-fit: contain;
+            display: block;
+       }
+       .item
+       {
+        overflow: hidden;
+        box-shadow: 0 0 10px rgb(200, 199, 199);
+        text-align: center;
+        padding: 1rem;
+        
+       }
+       .item:hover .image{
+            transform:scale(1.1);
+            transition:0.6s ease
+       }
+       .description
+       {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+       }
+       span::before
+        {
+            content: '₹';
+        }
+        .title,.price
+        {
+           
+            font-weight:700
+        }
+        .delete
+        {
+            padding: 0.3rem;
+        }
+   
+       
+.addloader {
+  width: 7px;
+  padding: 8px;
+  position: relative;
+  top: 5px;
+  aspect-ratio: 1;
+  display: inline-block;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+  display: none;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+@keyframes l5 {
+    0%  {box-shadow: 20px 0 #000, -20px 0 #0002;background: #000 }
+    33% {box-shadow: 20px 0 #000, -20px 0 #0002;background: #0002}
+    66% {box-shadow: 20px 0 #0002,-20px 0 #000; background: #0002}
+    100%{box-shadow: 20px 0 #0002,-20px 0 #000; background: #000 }
+}
+.input
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            padding: 10px;
+            gap: 10px;
+          
+            
+    padding: 0.8rem;
+    
+}
+input
+{
+    padding: 0.5rem;
+}
+    </style>
+</head>
+<body>
+    <div class="input">
+        <input type="text" id="title" placeholder="Enter Title">
+        <input type="text" id="price" placeholder="Enter Price">
+        <input type="text" id="description" placeholder="Enter Description">
+        <input type="text" id="image" placeholder="Enter image url">
+        <button id="btn">Add data</button>
+        <div class="addloader" id="addloader"></div>
+    </div>
+    <div class="container" id="container"></div>
+    <div class="loader" id="loader"></div>
+    <script src="./index.js"></script>
+</body>
+</html>
